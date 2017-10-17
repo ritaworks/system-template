@@ -1,8 +1,9 @@
 # 概要
 https://github.com/ritaworks/s3-template<br>
-上記のテンプレートをカスタマイズしたシステム開発用のテンプレートです。
+上記のテンプレートをカスタマイズしたシステム開発用のテンプレートです。<br>
+gulpコマンドを利用して、sassの自動コンパイル化、autoprefix、出力されるcssファイルのminify化を行います。
 
-## 動作環境
+## 動作環境(sassコンパイル)
 ### Node.js、npmのインストール済みであること<br>
 https://qiita.com/taiponrock/items/9001ae194571feb63a5e<br>
 
@@ -22,3 +23,5 @@ npm install
 ```
 gulp
 ```
+
+手順４を行うことで、sassファイルが変更されるたびに、cssが自動コンパイルされます。
