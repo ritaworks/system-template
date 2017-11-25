@@ -12,6 +12,19 @@ $spacer:(
 );
 $align: left, right, center;
 
+$breakpoints: (
+  'pc': 'only screen and (min-width: '$screen-pc-min')',
+  'tb': 'only screen and (max-width: '$screen-tb')',
+  'sp': 'only screen and (max-width: '$screen-sp')',
+);
+
+//mediaquery
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
 // クリアフィックスクラス
 @mixin clearfix() {
   &:before,
@@ -126,20 +139,45 @@ $align: left, right, center;
   }
 }
 
+// letterspacingクラスの生成
+@mixin letterspacing($sufix: "") {
+  $i: 20;
+  @while $i <= 100 {
+    .ls#{$i}#{$sufix} {
+      letter-spacing: #{$i * 0.001}em !important;
+    }
+    $i: $i + 1;
+  }
+}
+
+//position
+@mixin posset($pos: static, $top: auto, $right: auto, $bottom: auto, $left: auto, $index: 0) {
+  position: $pos;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $bottom;
+  z-index: $index;
+}
+
 //flex関係
 @mixin f-direction($value: row) {
+  -webkit-flex-direction: $value;
   flex-direction: $value;
 }
 
 @mixin f-wrap($value: wrap) {
+  -webkit-flex-wrap: $value;
   flex-wrap: $value;
 }
 
 @mixin j-content($value: flex-start) {
+  -webkit-justify-content: $value;
   justify-content: $value;
 }
 
 @mixin a-items($value: stretch) {
+  -webkit-align-items: $value;
   align-items: $value;
 }
 

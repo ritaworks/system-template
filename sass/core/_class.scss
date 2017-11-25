@@ -34,6 +34,9 @@ $align-items: (
 // lineheightのクラス
 @include lineheight();
 
+// letterspacingのクラス
+@include letterspacing();
+
 // リンクテキストクラス作成
 .link {
   @if $link-underline {
@@ -110,6 +113,38 @@ $align-items: (
 }
 .bold {
   font-weight: bold;
+}
+
+@if $responsive {
+  @media (max-width: $screen-tb) {
+    // タブレット用lineheightのクラス
+    @include lineheight(-tb);
+    // タブレット用letterspacingのクラス
+    @include letterspacing(-tb);
+  }
+
+  @media (max-width: $screen-sp) {
+    // スマホ用lineheightのクラス
+    @include lineheight(-sp);
+    // スマホ用letterspacingのクラス
+    @include letterspacing(-sp);
+  }
+  // デバイスごとのディスプレイ指定クラス
+  .pc {
+    @media (max-width: $screen-tb) {
+      display: none !important;
+    }
+  }
+  .pctb {
+    @media (max-width: $screen-sp) {
+      display: none !important;
+    }
+  }
+  .tb {
+    @media (min-width: $screen-pc-min) {
+      display: none !important;
+    }
+  }
 }
 
 //フレックス
