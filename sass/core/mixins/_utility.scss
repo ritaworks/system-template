@@ -73,6 +73,15 @@ $breakpoints: (
   }
 }
 
+// フォントウェイトクラスの生成
+@mixin fontweight {
+  @for $i from 1 through 9 {
+    .fw#{$i * 100} {
+      font-weight: #{$i * 100} !important;
+    }
+  }
+}
+
 // グラデーション生成
 @mixin gradient($start-color, $end-color, $orientation)
 {

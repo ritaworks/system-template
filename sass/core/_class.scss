@@ -145,6 +145,11 @@ $align-items: (
       display: none !important;
     }
   }
+  .sp {
+    @media only screen and (min-width: $screen-tb-min) {
+      display: none !important;
+    }
+  }
 }
 
 //フレックス
@@ -169,5 +174,52 @@ $align-items: (
 @each $class, $value in $align-items {
   .#{$class} {
     @include a-items($value);
+  }
+}
+
+@if $responsive {
+  @media only screen and (max-width: $screen-tb) {
+    @each $class, $value in $flex-direction {
+      .#{$class}-tb {
+        @include f-direction($value);
+      }
+    }
+    @each $class, $value in $flex-wrap {
+      .#{$class}-tb {
+        @include f-wrap($value);
+      }
+    }
+    @each $class, $value in $justify-content {
+      .#{$class}-tb {
+        @include j-content($value);
+      }
+    }
+    @each $class, $value in $align-items {
+      .#{$class}-tb {
+        @include a-items($value);
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-sp) {
+    @each $class, $value in $flex-direction {
+      .#{$class}-sp {
+        @include f-direction($value);
+      }
+    }
+    @each $class, $value in $flex-wrap {
+      .#{$class}-sp {
+        @include f-wrap($value);
+      }
+    }
+    @each $class, $value in $justify-content {
+      .#{$class}-sp {
+        @include j-content($value);
+      }
+    }
+    @each $class, $value in $align-items {
+      .#{$class}-sp {
+        @include a-items($value);
+      }
+    }
   }
 }
