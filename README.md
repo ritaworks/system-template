@@ -5,7 +5,8 @@ gulpコマンドを利用して、sassの自動コンパイル化、autoprefix�
 
 ## 動作環境(sassコンパイル)
 ### Node.js、npmのインストール済みであること<br>
-https://qiita.com/taiponrock/items/9001ae194571feb63a5e<br>
+https://nodejs.org/ja/<br>
+上記のurlもしくは、macの方はhomebrewなどでもインストールすることが可能です。
 
 ### gulpのグローバルインストール済みであること
 ```
