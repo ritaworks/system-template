@@ -16,9 +16,10 @@ gulp.task('sass', function() {
   gulp.src(path.join(SRC, 'sass/import.scss'))
     .pipe(plumber())
     .pipe(sassglob())
+    .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer())
-    .pipe(sourcemaps.write(path.join(SRC, 'css/')))
+    .pipe(sourcemaps.write(path.join('./')))
     .pipe(gulp.dest(path.join(SRC, 'css/')));
 });
 
